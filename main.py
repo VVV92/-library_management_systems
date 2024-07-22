@@ -68,14 +68,14 @@ def load_books():
     """Загружает данные книг из файла."""
     global books
     if os.path.exists("books.txt"):
-        with open("books.txt", "r") as file:
+        with open("books.txt", "r", encoding="utf-8") as file:
             books = [line.strip().split(",") for line in file]
             for book in books:
                 book[3] = book[3].strip()
 
 def save_books():
     """Сохраняет данные книг в файл."""
-    with open("books.txt", "w") as file:
+    with open("books.txt", "w", encoding="utf-8") as file:
         for book in books:
             file.write(",".join(book) + "\n")
 
